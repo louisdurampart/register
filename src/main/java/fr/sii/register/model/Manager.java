@@ -11,6 +11,7 @@ public class Manager {
     public Manager() {
     }
 
+
     public Manager(int id, String fullname){
         super();
         this.id = id;
@@ -32,4 +33,3 @@ public class Manager {
     }
 
 }
-// test
