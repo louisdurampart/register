@@ -2,7 +2,7 @@
 
 FROM eclipse-temurin:17-jdk-jammy
 
-WORKDIR /register
+VOLUME /tmp
 
 COPY target/*.jar app.jar
 
