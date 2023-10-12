@@ -32,19 +32,11 @@ public class ManagerService {
     public void deleteManager(int id)
     {
         managerRepository.deleteById(id);
-    //   Managers.removeIf(manager -> manager.getId() ==id);
     }
     public void addManager(Manager manager) {
         managerRepository.save(manager);
-       //Managers.add(manager);
     }
     public void updateManager(Manager manager, int id){
-
        managerRepository.save(manager);
-      // Managers.forEach(Manager1 -> {
-        //   if(Manager1.getId() == id){
-          //     Managers.set(Managers.indexOf(Manager1), manager);
-          // }
-      // });
     }
 }
