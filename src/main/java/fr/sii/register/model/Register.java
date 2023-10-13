@@ -16,10 +16,10 @@ public class Register {
     private String mail;
     private String phone;
     private String company;
-    private Reason reason;
+    private String reason;
     private Date startedAt;
 
-    public Register(int id,String firstname, String lastname, String mail, String phone, String company, Reason reason, Date startedAt ) {
+    public Register(int id,String firstname, String lastname, String mail, String phone, String company, String reason, Date startedAt ) {
         this.id=id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -78,11 +78,11 @@ public class Register {
         this.company = company;
     }
 
-    public Reason getReason() {
+    public String getReason() {
         return reason;
     }
 
-    public void setReason(Reason reason) {
+    public void setReason(String reason) {
         this.reason = reason;
     }
 
