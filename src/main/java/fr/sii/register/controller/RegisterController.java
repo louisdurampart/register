@@ -15,7 +15,6 @@ public class RegisterController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/Registers")
     public List<Register> getRegister() {
-
         return registerService.getRegisters();
     }
     @RequestMapping("/Register/{id}")

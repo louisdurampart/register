@@ -19,8 +19,6 @@ public class Register {
     private Reason reason;
     private Date startedAt;
 
-
-
     public Register(int id,String firstname, String lastname, String mail, String phone, String company, Reason reason, Date startedAt ) {
         this.id=id;
         this.firstname = firstname;
