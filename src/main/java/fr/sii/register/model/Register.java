@@ -17,16 +17,20 @@ public class Register {
     private String phone;
     private String company;
     private String reason;
+    private Manager manager;
+    private String estimateDuration;
     private Date startedAt;
 
-    public Register(int id,String firstname, String lastname, String mail, String phone, String company, String reason, Date startedAt ) {
-        this.id=id;
+    public Register(int id, String firstname, String lastname, String mail, String phone, String company, String reason, Manager manager, String estimateDuration, Date startedAt) {
+        this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.mail = mail;
         this.phone = phone;
         this.company = company;
         this.reason = reason;
+        this.manager = manager;
+        this.estimateDuration = estimateDuration;
         this.startedAt = startedAt;
     }
 
@@ -86,6 +90,24 @@ public class Register {
         this.reason = reason;
     }
 
+
+
+    public Manager getManager() {
+        return manager;
+    }
+
+    public void setManager(Manager manager) {
+        this.manager = manager;
+    }
+
+    public String getEstimateDuration() {
+        return estimateDuration;
+    }
+
+    public void setEstimateDuration(String estimateDuration) {
+        this.estimateDuration = estimateDuration;
+    }
+
     public Date getStartedAt() {
         return startedAt;
     }
@@ -94,11 +116,5 @@ public class Register {
         this.startedAt = startedAt;
     }
 
-    private String organisation;
-    private enum Reason{
-        entretien,
-        visite,
-        presentation,
-    }
 
 }
