@@ -16,12 +16,12 @@ public class Register {
     private String mail;
     private String phone;
     private String company;
-    private String reason;
+    private Reason reason;
     private Date startedAt;
 
 
 
-    public Register(int id,String firstname, String lastname, String mail, String phone, String company, String reason, Date startedAt ) {
+    public Register(int id,String firstname, String lastname, String mail, String phone, String company, Reason reason, Date startedAt ) {
         this.id=id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -80,11 +80,11 @@ public class Register {
         this.company = company;
     }
 
-    public String getReason() {
+    public Reason getReason() {
         return reason;
     }
 
-    public void setReason(String reason) {
+    public void setReason(Reason reason) {
         this.reason = reason;
     }
 
@@ -96,5 +96,11 @@ public class Register {
         this.startedAt = startedAt;
     }
 
+    private String organisation;
+    private enum Reason{
+        entretien,
+        visite,
+        presentation,
+    }
 
 }
