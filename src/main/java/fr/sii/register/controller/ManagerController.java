@@ -14,15 +14,14 @@ public class ManagerController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/Managers")
     public List<Manager> getManager() {
-
         return managerService.getManagers();
     }
     @RequestMapping("/Manager/{id}")
     public Manager getManager(@PathVariable int id){
         return managerService.getManager(id);
     }
-    @RequestMapping(method = RequestMethod.DELETE, value = "/Manager/{id}" )
-    public void deleteManager(int id){
+    @RequestMapping(method = RequestMethod.DELETE, value = "/Manager/{id}")
+    public void deleteManager(@PathVariable Integer id) {
         managerService.deleteManager(id);
     }
     @RequestMapping(method = RequestMethod.POST, value = "/Managers")

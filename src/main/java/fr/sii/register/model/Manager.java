@@ -1,9 +1,10 @@
 package fr.sii.register.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Manager {
@@ -11,9 +12,12 @@ public class Manager {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String fullname;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "manager") // Cette annotation crée la liaison avec la table "Register"
+    private List<Register> registers;
+
     public Manager() {
     }
-
 
     public Manager(int id, String fullname){
         super();
@@ -35,4 +39,11 @@ public class Manager {
         this.fullname = fullname;
     }
 
+    public List<Register> getRegisters() {
+        return registers;
+    }
+
+    public void setRegisters(List<Register> registers) {
+        this.registers = registers;
+    }
 }
