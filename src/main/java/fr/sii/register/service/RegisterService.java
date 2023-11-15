@@ -15,14 +15,20 @@ import java.util.List;
 public class RegisterService {
     @Autowired
     private RegisterRepository registerRepository;
-    static private ArrayList<Register> Registers = new ArrayList<>(Arrays.asList(
-    ));
-    public List<Register> getRegisters()
-    {    List<Register> Registers = new ArrayList<>();
-        registerRepository.findAll().forEach(register ->{
-            Registers.add(register);
+
+    public List<Register> getRegisters() {
+        // Use the custom query to get records ordered by startedAt
+        List<Register> registers = registerRepository.findAllByOrderByStartedAtDesc();
+
+        // Load associated managers (as in your original code)
+        registers.forEach(register -> {
+            Manager manager = register.getManager();
+            if (manager != null) {
+                manager.getFullname();
+            }
         });
-        return Registers;
+
+        return registers;
     }
 
     public Register getRegister(int id) {
@@ -41,4 +47,3 @@ public class RegisterService {
         registerRepository.save(register);
     }
 }
-

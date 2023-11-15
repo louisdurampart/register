@@ -1,10 +1,12 @@
 package fr.sii.register.model;
 
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import jakarta.persistence.*;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.util.Date;
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Register {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,16 +17,15 @@ public class Register {
     private String phone;
     private String company;
     private String reason;
-    @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Manager manager;
     private String estimateTime;
     private Date startedAt;
-
+    private String otherManager;
     public Register() {
     }
 
-    public Register(int id, String firstname, String lastname, String mail, String phone, String company, String reason, Manager manager, String estimateTime, Date startedAt) {
+    public Register(int id, String firstname, String lastname, String mail, String phone, String company, String reason, Manager manager, String estimateTime, Date startedAt, String otherManager) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -35,6 +36,7 @@ public class Register {
         this.manager = manager;
         this.estimateTime = estimateTime;
         this.startedAt = startedAt;
+        this.otherManager = otherManager;
     }
 
     public int getId() {
@@ -92,7 +94,6 @@ public class Register {
     public void setReason(String reason) {
         this.reason = reason;
     }
-    @JsonInclude
     public Manager getManager() {
         return manager;
     }
@@ -117,4 +118,11 @@ public class Register {
         this.startedAt = startedAt;
     }
 
+    public String getOtherManager() {
+        return otherManager;
+    }
+
+    public void setOtherManager(String otherManager) {
+        this.otherManager = otherManager;
+    }
 }

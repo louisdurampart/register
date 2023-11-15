@@ -1,29 +1,31 @@
 package fr.sii.register.model;
 
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Manager {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String fullname;
-    @JsonManagedReference
-    @OneToMany(mappedBy = "manager") // Cette annotation crée la liaison avec la table "Register"
+    private Boolean isActive;
+    @OneToMany(mappedBy = "manager")
+    @JsonBackReference
     private List<Register> registers;
 
     public Manager() {
     }
 
-    public Manager(int id, String fullname){
-        super();
+    public Manager(int id, String fullname, Boolean isActive) {
         this.id = id;
         this.fullname = fullname;
+        this.isActive = isActive;
     }
+
     public int getId() {
         return id;
     }
@@ -45,5 +47,13 @@ public class Manager {
 
     public void setRegisters(List<Register> registers) {
         this.registers = registers;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 }

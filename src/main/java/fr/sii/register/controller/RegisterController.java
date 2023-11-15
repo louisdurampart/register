@@ -18,7 +18,6 @@ public class RegisterController {
     }
     @RequestMapping("/Register/{id}")
     public Register getRegister(@PathVariable int id){
-
         Register register = registerService.getRegister(id);
         Manager manager = register.getManager();
         return register;
@@ -27,7 +26,6 @@ public class RegisterController {
     public void deleteRegister(@PathVariable int id) {
         registerService.deleteRegister(id);
     }
-
     @RequestMapping(method = RequestMethod.POST, value = "/Registers")
     public void addRegister (@RequestBody Register register){
         registerService.addRegister(register);
