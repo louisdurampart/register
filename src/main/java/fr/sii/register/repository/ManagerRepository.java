@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface ManagerRepository extends CrudRepository<Manager, Integer> {
     List<Manager> findAllByOrderByFullnameAsc();
-    List<Manager> findAllByIsActiveTrue();
+    List<Manager> findAllByIsActiveTrueOrderByFullnameAsc();
 
 }

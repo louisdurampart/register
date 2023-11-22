@@ -24,7 +24,7 @@ public class ManagerService {
        //return Managers.stream().filter(manager -> manager.getId() == id).findFirst().orElse(null);
     }
     public List<Manager> getActiveManagers() {
-        return managerRepository.findAllByIsActiveTrue();
+        return managerRepository.findAllByIsActiveTrueOrderByFullnameAsc();
     }
     public void deleteManager(int id)
     {
