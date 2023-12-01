@@ -35,5 +35,4 @@ public class ManagerController {
     public void deleteManager(@PathVariable int id) {
         managerService.deleteManager(id);
     }
-
 }

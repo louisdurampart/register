@@ -32,6 +32,6 @@ public class RegisterController {
     }
     @RequestMapping(method = RequestMethod.PUT, value = "/Register/{id}")
     public void updateRegister(@RequestBody Register register, @PathVariable int id){
-        registerService.updateManager(register,id);
+        registerService.updateRegister(register,id);
     }
 }

@@ -43,7 +43,17 @@ public class RegisterService {
         registerRepository.save(register);
     }
 
-    public void updateManager(Register register, int id) {
-        registerRepository.save(register);
+    public void updateRegister(Register register, int id) {
+        // Vérifiez si l'enregistrement existe dans la base de données
+        Register existingRegister = registerRepository.findById(id).orElse(null);
+
+        if (existingRegister != null) {
+            // Mettez à jour uniquement les propriétés que vous souhaitez modifier
+            existingRegister.setHere(register.getHere());
+            existingRegister.setReason(register.getReason());
+
+            // Enregistrez les modifications dans la base de données
+            registerRepository.save(existingRegister);
+        }
     }
 }

@@ -16,6 +16,8 @@ public class Register {
     private String mail;
     private String phone;
     private String company;
+    private String badge;
+    private Boolean here;
     private String reason;
     @ManyToOne
     private Manager manager;
@@ -25,13 +27,15 @@ public class Register {
     public Register() {
     }
 
-    public Register(int id, String firstname, String lastname, String mail, String phone, String company, String reason, Manager manager, String estimateTime, Date startedAt, String otherManager) {
+    public Register(int id, String firstname, String lastname, String mail, String phone, String company, String badge, Boolean here, String reason, Manager manager, String estimateTime, Date startedAt, String otherManager) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.mail = mail;
         this.phone = phone;
         this.company = company;
+        this.badge = badge;
+        this.here = here;
         this.reason = reason;
         this.manager = manager;
         this.estimateTime = estimateTime;
@@ -85,6 +89,22 @@ public class Register {
 
     public void setCompany(String company) {
         this.company = company;
+    }
+
+    public String getBadge() {
+        return badge;
+    }
+
+    public void setBadge(String badge) {
+        this.badge = badge;
+    }
+
+    public Boolean getHere() {
+        return here;
+    }
+
+    public void setHere(Boolean here) {
+        this.here = here;
     }
 
     public String getReason() {
